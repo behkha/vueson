@@ -133,7 +133,7 @@ MIT License © 2024-PRESENT [Behzad Khanlar](https://github.com/behkha)
 
 ## Credits
 
-Built with ❤️ by [Behzad Khanlar](https://github.com/behkha)
+Built with ❤️ by [behkha](https://github.com/behkha)
 
 ## Support
 
