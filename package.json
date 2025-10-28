@@ -11,12 +11,10 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:demo": "vite build --mode demo",
-    "preview": "vite preview",
-    "preview:demo": "vite preview --mode demo",
-    "dev:demo": "vite --mode demo",
-    "deploy": "npm run build:demo && gh-pages -d dist-demo"
+    "dev:demo": "vite --config vite.config.demo.ts",
+    "build": "vue-tsc -b && vite build",
+    "build:demo": "vite build --config vite.config.demo.ts",
+    "deploy": "npm run build:demo && gh-pages -d demo-dist"
   },
   "peerDependencies": {
     "class-variance-authority": "^0.7.1",
