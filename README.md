@@ -129,11 +129,11 @@ Modern browsers and Internet Explorer 11+
 
 ## License
 
-MIT License © 2024-PRESENT [Behkha](https://github.com/behkha)
+MIT License © 2024-PRESENT [Behzad Khanlar](https://github.com/behkha)
 
 ## Credits
 
-Built with ❤️ by [Behzad Khanlar](https://github.com/behkha)
+Built with ❤️ by [behkha](https://github.com/behkha)
 
 ## Support
 
