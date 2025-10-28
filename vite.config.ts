@@ -23,6 +23,5 @@ export default defineConfig({
         globals: { vue: "Vue" },
       },
     },
-    outDir: 'docs'
   },
 });
