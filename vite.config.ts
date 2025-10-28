@@ -10,6 +10,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  base: './',
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/lib/index.ts"),
@@ -22,5 +23,6 @@ export default defineConfig({
         globals: { vue: "Vue" },
       },
     },
+    outDir: 'docs'
   },
 });
