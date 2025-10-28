@@ -12,8 +12,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:demo": "vite build --mode demo",
     "preview": "vite preview",
-    "deploy": "vite build && gh-pages -d dist"
+    "preview:demo": "vite preview --mode demo",
+    "dev:demo": "vite --mode demo",
+    "deploy": "npm run build:demo && gh-pages -d dist-demo"
   },
   "peerDependencies": {
     "class-variance-authority": "^0.7.1",
