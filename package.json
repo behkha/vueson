@@ -1,6 +1,6 @@
 {
   "name": "vueson",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A visual JSON schema builder for Vue 3 using TailwindCSS and shadcn-vue components.",
   "type": "module",
   "main": "dist/vueson.umd.js",
@@ -14,7 +14,7 @@
     "dev": "vite",
     "dev:demo": "vite --config vite.config.demo.ts",
     "build:demo": "vite build --config vite.config.demo.ts",
-    "build": "vue-tsc -b && vite build",
+    "build": "vite build",
     "deploy": "npm run build:demo && gh-pages -d demo-dist"
   },
   "peerDependencies": {
