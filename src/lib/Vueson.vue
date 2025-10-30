@@ -1,5 +1,5 @@
 <template>
-  <div class="group rounded-xl border">
+  <div class="vueson group rounded-xl border flex flex-col">
     <slot name="header">
       <div class="min-h-13 flex items-center justify-between border-b p-2">
         <slot name="title">
@@ -13,7 +13,7 @@
       <SchemaItem v-model="modelValue" :use-ref="true" />
     </div>
 
-    <div v-if="useDefinitions" class="border-t">
+    <div v-if="useDefinitions" class="border-t mt-auto">
       <div
         class="hover:bg-accent flex cursor-pointer items-center gap-2 p-2"
         :class="[definitionsExpanded ? '' : 'rounded-b-md']"
