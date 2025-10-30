@@ -30,6 +30,7 @@ npm install vueson
 // main.ts
 import { createApp } from 'vue'
 import Vueson from 'vueson'
+import "vueson/dist/vueson.css"
 
 const app = createApp(App)
 app.use(Vueson)
@@ -42,6 +43,7 @@ app.mount('#app')
 <script setup>
 import { ref } from 'vue'
 import { Vueson } from 'vueson'
+import "vueson/dist/vueson.css"
 
 const schema = ref({
   type: 'object',
