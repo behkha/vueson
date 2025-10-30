@@ -1,5 +1,6 @@
 import type { App } from "vue";
 import Vueson from "./Vueson.vue";
+import "../style.css"
 
 export { Vueson };
 
