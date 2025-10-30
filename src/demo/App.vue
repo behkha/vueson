@@ -108,6 +108,7 @@ onMounted(() => {
     theme: theme.value,
     automaticLayout: true,
     minimap: { enabled: false },
+    wordWrap: 'bounded',
     suggest: {
       preview: true,
       showMethods: true,

@@ -1,5 +1,7 @@
 # Vueson
 
+![Vueson](src/assets/logo.png)
+
 A visual JSON Schema builder component for Vue 3, built with TailwindCSS and shadcn-vue components.
 
 ## Features
