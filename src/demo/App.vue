@@ -16,15 +16,15 @@
 
 <script setup>
 import { computed, ref, onMounted, shallowRef, watch } from "vue";
-import * as monaco from 'monaco-editor';
+import * as monaco from "monaco-editor";
 import Vueson from "@/lib/Vueson.vue";
 import { Braces } from "lucide-vue-next";
 
 import { useColorMode } from "@vueuse/core";
-const colorMode = useColorMode()
+const colorMode = useColorMode();
 
-const editorRef = ref(null)
-const editor = shallowRef(null)
+const editorRef = ref(null);
+const editor = shallowRef(null);
 const schema = ref({
   type: "object",
   properties: {
@@ -92,23 +92,39 @@ const schema = ref({
 });
 
 const theme = computed(() => {
-  return colorMode.value === 'dark' ? 'vs-dark' : 'vs';
+  return colorMode.value === "dark" ? "vs-dark" : "vs";
 });
 
-watch(theme, value => {
+watch(theme, (value) => {
   editor.value?.updateOptions({
-    theme: value
+    theme: value,
   });
 });
+
+watch(
+  schema,
+  (value) => {
+    try {
+      const temp = JSON.stringify(value, null, 2);
+      if (temp && temp !== editor.value?.getValue()) {
+        editor.value?.setValue(temp);
+        beautify();
+      }
+    } catch (error) {
+      ///
+    }
+  },
+  { deep: true }
+);
 
 onMounted(() => {
   editor.value = monaco.editor.create(editorRef.value, {
     value: JSON.stringify(schema.value, null, 2),
-    language: 'json',
+    language: "json",
     theme: theme.value,
     automaticLayout: true,
     minimap: { enabled: false },
-    wordWrap: 'bounded',
+    wordWrap: "bounded",
     suggest: {
       preview: true,
       showMethods: true,
@@ -135,17 +151,17 @@ onMounted(() => {
       showReferences: true,
       showFolders: true,
       showTypeParameters: true,
-      showSnippets: true
+      showSnippets: true,
     },
     quickSuggestions: {
       other: true,
       comments: true,
-      strings: true
+      strings: true,
     },
     stickyScroll: {
-      enabled: false
+      enabled: false,
     },
-    scrollBeyondLastLine: false
+    scrollBeyondLastLine: false,
   });
 
   editor.value.onDidChangeModelContent(() => {
@@ -153,17 +169,17 @@ onMounted(() => {
     try {
       const tempValue = JSON.parse(value);
       if (tempValue) {
-        schema.value = tempValue
+        schema.value = tempValue;
       }
     } catch (error) {
       //
     }
   });
 
-  beautify()
+  beautify();
 });
 
 function beautify() {
-  editor.value?.getAction('editor.action.formatDocument').run();
+  editor.value?.getAction("editor.action.formatDocument").run();
 }
 </script>
