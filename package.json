@@ -14,8 +14,9 @@
     "dev": "vite",
     "dev:demo": "vite --config vite.config.demo.ts",
     "build:demo": "vite build --config vite.config.demo.ts",
+    "build:css": "npx @tailwindcss/cli -c tailwind.config.build.ts -i ./src/style.css -o ./dist/style.css --minify",
     "build": "vite build",
-    "deploy": "npm run build:demo && gh-pages -d demo-dist"
+    "deploy": "npm run build:css && npm run build:demo && gh-pages -d demo-dist"
   },
   "peerDependencies": {
     "class-variance-authority": "^0.7.1",

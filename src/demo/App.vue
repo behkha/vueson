@@ -1,8 +1,24 @@
 <template>
   <div class="p-4 space-y-4 h-screen flex flex-col">
-    <div class="flex items-center gap-2 justify-center">
-      <Braces />
-      <h1 class="text-xl font-semibold">Vueson Demo</h1>
+    <div class="flex items-center gap-2 justify-between">
+      <div class="flex items-center gap-2">
+        <Braces />
+        <h1 class="text-xl font-semibold">Vueson Demo</h1>
+      </div>
+      <div class="flex items-center">
+        <Button size="icon" variant="ghost" @click="toggleTheme">
+          <component :is="colorMode === 'light' ? Moon : Sun" />
+        </Button>
+        <a
+          href="https://github.com/behkha/vueson"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button size="icon" variant="ghost">
+            <Github />
+          </Button>
+        </a>
+      </div>
     </div>
     <div class="flex h-full gap-4 overflow-auto">
       <Vueson v-model="schema" class="basis-1/2" />
@@ -18,7 +34,8 @@
 import { computed, ref, onMounted, shallowRef, watch } from "vue";
 import * as monaco from "monaco-editor";
 import Vueson from "@/lib/Vueson.vue";
-import { Braces } from "lucide-vue-next";
+import { Button } from "@/components/ui/button";
+import { Braces, Github, Moon, Sun } from "lucide-vue-next";
 
 import { useColorMode } from "@vueuse/core";
 const colorMode = useColorMode();
@@ -181,5 +198,9 @@ onMounted(() => {
 
 function beautify() {
   editor.value?.getAction("editor.action.formatDocument").run();
+}
+
+function toggleTheme() {
+  colorMode.value = colorMode.value === "light" ? "dark" : "light";
 }
 </script>
