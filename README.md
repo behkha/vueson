@@ -30,7 +30,7 @@ npm install vueson
 // main.ts
 import { createApp } from 'vue'
 import Vueson from 'vueson'
-import "vueson/dist/vueson.css"
+import "vueson/dist/style.css"
 
 const app = createApp(App)
 app.use(Vueson)
@@ -43,7 +43,7 @@ app.mount('#app')
 <script setup>
 import { ref } from 'vue'
 import { Vueson } from 'vueson'
-import "vueson/dist/vueson.css"
+import "vueson/dist/style.css"
 
 const schema = ref({
   type: 'object',
@@ -60,6 +60,9 @@ const schema = ref({
   <Vueson v-model="schema" />
 </template>
 ```
+
+**Notice**
+Only import `style.css` if your not using Tailwind 4 already
 
 ## Props
 
